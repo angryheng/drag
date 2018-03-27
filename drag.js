@@ -5,5 +5,8 @@ function drag(id) {
     obj.onmousedown = function (e) {
         disX = e.clientX - obj.offsetWidth;
         disX = e.clientY - obj.offsetHeight;
+        document.onmousemove = function () {
+
+        }
     }
 }
