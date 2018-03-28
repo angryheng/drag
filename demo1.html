@@ -7,7 +7,7 @@
     <style>
         #box {
             position: absolute;
-            top: 0;
+            top: 50px;
             left: 0;
             width: 100px;
             height: 100px;
@@ -15,9 +15,44 @@
         }
     </style>
     <link rel="stylesheet" href="" />
-    <script type="text/javascript" src="./drag.js"></script>
+    <script type="text/javascript" src="./move.js"></script>
 </head>
 <body>
+    <input type="button" value="点击运动" id="btn">
     <div id="box"></div>
+    <script>
+    var oBtn = document.getElementById("btn");
+    var oBox = document.getElementById("box");
+    oBtn.onclick = function () {
+        animate({
+            obj : oBox,
+            oTarget : {
+                left: 300
+            },
+            iTime : 500,
+            sType : 'easeIn',
+            fnEnd : function () {
+                animate({
+                    obj : oBox,
+                    oTarget : {
+                        width : 200
+                    },
+                    iTime : 800,
+                    sType : 'elasticOut',
+                    fnEnd : function () {
+                        animate({
+                            obj : oBox,
+                            oTarget : {
+                                height : 200
+                            },
+                            iTime : 800,
+                            sType : 'elasticOut'
+                        })
+                    }
+                });
+            }
+        });
+    }
+</script>
 </body>
 </html>
