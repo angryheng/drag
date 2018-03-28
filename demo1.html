@@ -15,14 +15,16 @@
         }
     </style>
     <link rel="stylesheet" href="" />
+    <script type="text/javascript" src="./drag.js"></script>
     <script type="text/javascript" src="./move.js"></script>
 </head>
 <body>
     <input type="button" value="点击运动" id="btn">
     <div id="box"></div>
-    <script>
+<script>
     var oBtn = document.getElementById("btn");
     var oBox = document.getElementById("box");
+    drag("box");
     oBtn.onclick = function () {
         animate({
             obj : oBox,
